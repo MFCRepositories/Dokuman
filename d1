@@ -1,0 +1,35 @@
+C# programlama dilinde değişken tipleri genellikle boyutlarına göre küçükten büyüğe şu şekilde sıralanabilir:
+
+1. *byte:* 8 bit (0 ile 255 arasında değer alır)
+2. *sbyte:* 8 bit (-128 ile 127 arasında değer alır)
+3. *short:* 16 bit (-32,768 ile 32,767 arasında değer alır)
+4. *ushort:* 16 bit (0 ile 65,535 arasında değer alır)
+5. *int:* 32 bit (-2,147,483,648 ile 2,147,483,647 arasında değer alır)
+6. *uint:* 32 bit (0 ile 4,294,967,295 arasında değer alır)
+7. *long:* 64 bit (-9,223,372,036,854,775,808 ile 9,223,372,036,854,775,807 arasında değer alır)
+8. *ulong:* 64 bit (0 ile 18,446,744,073,709,551,615 arasında değer alır)
+9. *float:* 32 bit (7 haneli kesirli sayı, yaklaşık 7 basamak doğrulukta)
+10. *double:* 64 bit (15 haneli kesirli sayı, yaklaşık 15 basamak doğrulukta)
+11. *decimal:* 128 bit (28 haneli kesirli sayı, yüksek hassasiyet)
+
+Bu sıralama, tipik olarak değişkenlerin bellekte kapladıkları alanın boyutuna göre yapılmıştır. Küçük tip veriler genellikle daha az bellek kullanırken, büyük tip veriler daha fazla bellek kullanır ancak daha büyük değer aralıklarını ve hassasiyeti destekler.
+
+Parasal değerlerle çalışırken, genellikle decimal veri tipini tercih etmek en doğru seçenektir. Bu durum, finansal hesaplamalarda ve para birimleri üzerinde yapılan işlemlerde daha yüksek hassasiyet ve doğruluk sağlamak için önerilir.
+
+*C# (C Sharp) tarafında:*
+csharp
+decimal amount = 1234.56m;
+
+
+decimal tipi, finansal verilerle çalışırken kayan noktalı sayılara kıyasla daha doğru sonuçlar elde etmenizi sağlar.
+*SQL tarafında:*
+sql
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    total_amount DECIMAL(18, 2) -- Örnek precision ve scale değerleri
+);
+
+
+SQL'de decimal veya numeric veri tipi kullanılabilir. Burada precision ve scale değerleri, toplam basamak sayısı ve ondalık basamak sayısını belirtir. decimal tipi, para birimleri ve finansal değerler gibi hassas sayıların saklanması için daha uygun bir seçenektir.
+
+Bu tercihler, finansal hesaplamalarda kayan noktalı hatalardan kaçınmak, veri kaybını minimize etmek ve hesaplamalarda daha doğru sonuçlar elde etmek için yapılır.
